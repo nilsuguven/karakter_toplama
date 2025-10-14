@@ -1,22 +1,32 @@
-# 💾 6-Bit Karakter Tabanlı Toplama Simülasyonu (C Projesi)
+💾 6-Bit Kodlama Sistemi ile Karakter Tabanlı Toplama Uygulaması
 
-Bu proje, kısıtlı Girdi/Çıktı (I/O) ortamına sahip Unix öncesi sistemleri simüle etmek amacıyla C dilinde geliştirilmiştir. Program, kullanıcıdan aldığı iki tek haneli rakam karakterini işleyerek toplama işlemini gerçekleştirir ve sonucun tek haneli kalması kısıtlamasını kontrol eder.
+Bu proje, Unix öncesi sistemlerdeki kısıtlı Girdi/Çıktı (I/O) ortamını simüle etmek için geliştirilmiş bir C programıdır.
+Program, kullanıcıdan iki tek haneli rakamı ASCII karakterleri olarak alır, 6-bit kodlama mantığına göre toplar ve sonucu ekrana yazdırır.
+Eğer toplam 9’u aşarsa, program hata mesajı verir.
 
-## 🎯 Proje Amacı ve Konsept
+🎯 Projenin Amacı
 
-1.  **Karakter Tabanlı Aritmetik:** Rakamların sayısal değerleri yerine, ASCII karakter karşılıkları üzerinden işlem yapma sürecini anlamak.
-2.  **6-Bit Simülasyonu:** Programın kısıtlı kaynak ortamında (6-bit, yani $2^6=64$ karaktere kadar) çalışabileceğini varsaymak ve bu kısıtlamayı **tek haneli sonuç** zorunluluğu ile uygulamak.
-3.  **Hata Kontrolü:** Toplama sonucunun $9$'u aşması durumunda hata döndürerek simülasyonun kısıtlamasına uyulmasını sağlamak.
+6-bit kodlama sisteminin temel mantığını anlamak,
 
-## ⚙️ Çalışma Mantığı
+Karakter tabanlı (ASCII) işlemleri uygulamak,
 
-| Aşama | İşlem | Örnek (`'3'` ve `'5'`) |
-| :--- | :--- | :--- |
-| **1. Girdi** | Kullanıcıdan iki karakter (`char`) alınır. | `'3'` (ASCII 51), `'5'` (ASCII 53) |
-| **2. Dönüşüm** | Karakterler, `'0'` karakterinin ASCII değerinden çıkarılarak sayısal (`int`) değere çevrilir. | $51 - 48 = 3$, $53 - 48 = 5$ |
-| **3. Toplama** | Sayısal değerler toplanır. | $3 + 5 = 8$ |
-| **4. Kontrol** | Toplam $9$'dan büyük mü? | $8 \le 9$ (Başarılı) |
-| **5. Sonuç** | Toplam (`int`) değere tekrar `'0'` ASCII değeri eklenerek karakter sonuca çevrilir. | $8 + 48 = 56$ (ASCII), yani `'8'` |
+Unix öncesi sınırlı sistemleri simüle etmek,
+
+C dilinde girdi/çıktı yönetimi ve hata kontrolü becerilerini geliştirmek.
+
+
+
+⚙️ Programın Çalışma Mantığı
+
+Kullanıcıdan iki karakter alınır ('0'–'9' arası).
+
+Bu karakterler sayısal değere dönüştürülür ('0' çıkarılarak).
+
+İki sayı toplanır.
+
+Eğer toplam 9’dan büyükse, 6-bit sınırı aşıldığı uyarısı verilir.
+
+Aksi halde sonuç karaktere dönüştürülür ve ekrana yazdırılır.
 
 ## 💻 Kullanılan Bileşenler
 
@@ -55,5 +65,31 @@ Birinci rakamı giriniz (Karakter olarak): 7
 
 ❌ Hata (6-Bit Kısıtlaması): Sonuç tek haneli olmalıdır.
 İşlem: 7 + 5 = 12 (Çift Hane)
+
+
+
+
+🧠 6-Bit ve 8-Bit Kodlama Karşılaştırması
+| Özellik                  | 6-Bit Kodlama                            | 8-Bit Kodlama (ASCII)                 |
+| ------------------------ | ---------------------------------------- | ------------------------------------- |
+| Bit Sayısı               | 6 bit                                    | 8 bit                                 |
+| Maksimum Karakter Sayısı | 64                                       | 256                                   |
+| Kullanım Alanı           | Eski terminaller, teletype sistemleri    | Modern bilgisayarlar                  |
+| Bellek Kullanımı         | Düşük                                    | Daha fazla                            |
+| Desteklenen Karakterler  | Büyük harfler, rakamlar, temel semboller | Harf, rakam, sembol, özel karakterler |
+
+🔹 Sonuç:
+6-bit kodlama eski sistemlerde bellek tasarrufu için tercih edilmiştir.
+Günümüzde 8-bit ASCII sistemi çok daha geniş karakter desteği sağlar.
+
+
+🤖 Geliştirme Süreci ve Yapay Zeka Desteği
+Bu projenin geliştirilmesi ve belgelenmesi aşamalarında, modern yapay zeka dil modellerinden destek alınmıştır. Bu destek, öğrenme sürecini hızlandırmış ve projenin teknik standartlara uygunluğunu artırmıştır.
+
+Kullanılan Araç	Faydalanılan Alanlar
+Google Gemini:
+Proje Planlama, Kod İyileştirme ve Belgeleme ödevin teknik kriterlerinin kontrol edilmesi ve GitHub README formatının hazırlanması süreçlerinde danışmanlık görevi görmüştür.
+OpenAI ChatGPT:
+Proje videosunda sunulacak olan 6-Bit ve 8-Bit kodlama sistemleri karşılaştırması ve bu sistemlerin Unix öncesi ortamlarla olan ilişkisi hakkında teorik bilgilerin toplanması ve sunum formatının oluşturulmasında, GitHub kullanımında yardımcı olarak kullanılmıştır.
 
 ---
